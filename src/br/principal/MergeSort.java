@@ -1,35 +1,38 @@
 package br.principal;
 
 public class MergeSort {
-    public static int[] MergeSort(int[] vet, int i, int f) {
-	    if (i < f) {
-	        int m = (i + f) / 2;
-	        MergeSort(vet, i, m);
-	        MergeSort(vet, m + 1, f);
-	        intercala(vet, i, m, f);
-	    }
-	    return vet;
-	}
-	
-	private static int[] intercala(int[] vet, int i, int m, int f) {
-	    int vet2[] = new int[vet.length];
-	    for (int j = i; j <= m; j++) {
-	        vet2[j] = vet[j];
-	    }
-	    for (int g = m + 1; g < f; g++) {
-	        vet2[f + m - g] = vet[g];
-	    }
-	    int x = i;
-	    int z = f - 1;
-	    for (int k = i; k < f; k++) {
-	        if (vet2[x] <= vet2[z]) {
-	            vet[k] = vet2[x];
-	            x = x + 1;
-	        } else {
-	            vet[k] = vet2[z];
-	            z = z - 1;
-	        }
-	    }
-	    return vet;
-	}
+    public static void mergeSort(int vetor[], int inicio, int fim) {
+        int meio;
+        if (inicio < fim) {
+            meio = (inicio + fim) / 2;
+            mergeSort(vetor, inicio, meio);
+            mergeSort(vetor, meio + 1, fim);
+            intercala(vetor, inicio, meio, fim);
+        }
+    }
+ 
+    public static void intercala(int vetor[], int inicio, int meio, int fim) {
+        int i, j, k;
+        int vetorB[] = new int[vetor.length];
+        for (i = inicio; i < meio; i++) {
+            vetorB[i] = vetor[i];
+        }
+        for (j = meio + 1; j < fim; j++) {
+            vetorB[fim + meio + 1 - j] = vetor[j];
+        }
+        i = inicio;
+        j = fim;
+        for (k = inicio; k < fim; k++) {
+            if (vetorB[i] <= vetorB[j]) {
+                vetor[k] = vetorB[i];
+                i = i + 1;
+            } else {
+                vetor[k] = vetorB[j];
+                j = j - 1;
+            }
+        }
+    }
+ 
 }
+
+
