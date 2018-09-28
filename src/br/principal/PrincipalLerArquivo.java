@@ -35,8 +35,8 @@ public class PrincipalLerArquivo {
 		i++;
 	    }
 	    
-	    QuickSort sorter = new QuickSort();// estancia a classe QuickSort
-	    sorter.sort(vetorArquivo);//ordena o arquivo QuickSort
+	    QuickSort quickSort = new QuickSort();// estancia a classe QuickSort
+	    quickSort.ordenar(vetorArquivo);//ordena o arquivo QuickSort
 	    /*--------------------------------------------------------------------*/
 //	    InsertSort.ordenar(vetorArquivo);//ordena o arquivo
 	    /*--------------------------------------------------------------------*/

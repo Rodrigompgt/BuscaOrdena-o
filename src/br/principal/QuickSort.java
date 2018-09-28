@@ -4,27 +4,27 @@ public class QuickSort {
 
     private DetalheArquivo array[];
 
-    public void sort(DetalheArquivo[] inputArr) {
-	if (inputArr == null || inputArr.length == 0) {
+    public void ordenar(DetalheArquivo[] vetor) {
+	if (vetor == null || vetor.length == 0) {
 	    return;
 	}
-	this.array = inputArr;
-	quickSort(0, inputArr.length - 1);
+	this.array = vetor;
+	quickSort(0, vetor.length - 1);
     }
 
-    private void quickSort(int lowerIndex, int higherIndex) {
+    private void quickSort(int valorIni, int valorFim) {
 
-	int i = lowerIndex;
-	int j = higherIndex;
-	// calculate pivot number, I am taking pivot as middle index number
-	int pivot = array[lowerIndex + (higherIndex - lowerIndex) / 2].getTamanho();
-	// Divide into two arrays
+	int i = valorIni;
+	int j = valorFim;
+	// calcular o número de pivô, eu estou tomando pivô como número do índice médio
+	int pivot = array[valorIni + (valorFim - valorIni) / 2].getTamanho();
+	// Divida em duas arrays
 	while (i <= j) {
 	    /**
-	     * In each iteration, we will identify a number from left side which is greater
-	     * then the pivot value, and also we will identify a number from right side
-	     * which is less then the pivot value. Once the search is done, then we exchange
-	     * both numbers.
+	     * Em cada iteração, vamos identificar um número do lado esquerdo que é maior
+	     * então o valor pivot, e também vamos identificar um número do lado direito que
+	     * é menor que o valor de pivô. Uma vez que a pesquisa é feita, então nós
+	     * trocamos   * ambos os números.
 	     */
 	    while (array[i].getTamanho() < pivot) {
 		i++;
@@ -33,28 +33,28 @@ public class QuickSort {
 		j--;
 	    }
 	    if (i <= j) {
-		exchangeNumbers(i, j);
-		// move index to next position on both sides
+		trocaValores(i, j);
+		// mova o índice para a próxima posição nos dois lados
 		i++;
 		j--;
 	    }
 	}
-	// call quickSort() method recursively
-	if (lowerIndex < j)
-	    quickSort(lowerIndex, j);
-	if (i < higherIndex)
-	    quickSort(i, higherIndex);
+	// chame o método quickSort () recursivamente
+	if (valorIni < j)
+	    quickSort(valorIni, j);
+	if (i < valorFim)
+	    quickSort(i, valorFim);
     }
 
-    private void exchangeNumbers(int i, int j) {
+    private void trocaValores(int i, int j) {
 	DetalheArquivo[] vetorArquivoTemp = new DetalheArquivo[1];
 	vetorArquivoTemp[0] = new DetalheArquivo();
 	vetorArquivoTemp[0].setNome(array[i].getNome());
 	vetorArquivoTemp[0].setTamanho(array[i].getTamanho());
-	
+
 	array[i].setNome(array[j].getNome());
 	array[i].setTamanho(array[j].getTamanho());
-	
+
 	array[j].setNome(vetorArquivoTemp[0].getNome());
 	array[j].setTamanho(vetorArquivoTemp[0].getTamanho());
     }
