@@ -8,8 +8,9 @@ public class PrincipalLerArquivo {
 
     public static void main(String[] args) throws IOException {
 	// Ver Arquivo
-	String arquivo = "C:/Users/Rodrigo/Desktop/Teste/Basque.txt";
-
+	String arquivo = "C:/Users/Rodrigo/Desktop/Nova pasta/Eclipse java/ExercicioBuscaEOrdenacao/Basque.txt";
+//	"C:/Users/Rodrigo/Desktop/Teste/Teste.txt"
+	
 	try {
 	    FileReader arq = new FileReader(arquivo);
 	    BufferedReader lerArq = new BufferedReader(arq);
@@ -27,16 +28,16 @@ public class PrincipalLerArquivo {
 		System.out.println("Antes da Ordenação: " + linha);
 		vetorArquivo[i] = new DetalheArquivo();
 		
-		vetorArquivo[i].setNome(linha);
-		vetorArquivo[i].setTamanho(linha.length());
+		vetorArquivo[i].setNome(linha);// seta a linha
+		vetorArquivo[i].setTamanho(linha.length());// seta o tamanho da linha
 
 		linha = lerArq.readLine(); // lê da segunda até a última linha
 
 		i++;
 	    }
 	    
-	    QuickSort quickSort = new QuickSort();// estancia a classe QuickSort
-	    quickSort.ordenar(vetorArquivo);//ordena o arquivo QuickSort
+//	    QuickSort quickSort = new QuickSort();// estancia a classe QuickSort
+//	    quickSort.ordenar(vetorArquivo);//ordena o arquivo QuickSort
 	    /*--------------------------------------------------------------------*/
 //	    InsertSort.ordenar(vetorArquivo);//ordena o arquivo
 	    /*--------------------------------------------------------------------*/
@@ -44,6 +45,10 @@ public class PrincipalLerArquivo {
 	    /*--------------------------------------------------------------------*/
 //	    SelectionSort.ordenar(vetorArquivo);//ordena o arquivo
 	    /*--------------------------------------------------------------------*/
+//	    MergeSort mergeSort = new MergeSort();
+//	    mergeSort.ordenar(vetorArquivo);
+	    MergeSort2 mergeSort2 = new MergeSort2();
+	    mergeSort2.mergeSort(vetorArquivo, 0, vetorArquivo.length-1);
 	    
 	    System.out.println("\n");//mostra ordenado
 	    for (int j = 0; j < vetorArquivo.length; j++) {
