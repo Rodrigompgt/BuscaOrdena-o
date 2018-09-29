@@ -2,18 +2,18 @@ package br.principal;
 
 public class MergeSort2 {
 
-    public void mergeSort(DetalheArquivo[] vetor, int ini, int fim) {
+    public void ordenar(DetalheArquivo[] vetor, int ini, int fim) {
 	if (ini < fim) {
 	    int meio = (ini + fim) / 2;
-	    mergeSort(vetor, ini, meio);
-	    mergeSort(vetor, meio + 1, fim);
+	    ordenar(vetor, ini, meio);
+	    ordenar(vetor, meio + 1, fim);
 	    intercala(vetor, ini, meio, fim);
 	}
     }
 
     private void intercala(DetalheArquivo[] vetor, int ini, int meio, int fim) {
 	DetalheArquivo[] vetor2 = new DetalheArquivo[vetor.length];
-	
+
 	for (int i = ini; i <= fim; i++) {
 	    vetor2[i] = vetor[i];
 	}
